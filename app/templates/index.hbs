@@ -1,7 +1,25 @@
 <form role="form">
   <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" placeholder="Name">
+    {{view Ember.TextField
+      valueBinding="name"
+      class="form-control"
+      id="name"
+      placeholder="Name"}}
   </div>
-  <button type="submit" class="btn btn-default">Submit</button>
+  <button type="submit" class="btn btn-default" {{action create}}>Submit</button>
 </form>
+
+{{! switches the context}}
+{{#each locations}}
+  <h2>{{name}}</h2>
+  <dl class="dl-horizontal">
+    {{! change the context so the new this is weather}}
+    {{#with weather}}
+      <dt>Temperature</dt>
+      <dd>{{temp}}° C</dd>
+    {{/with}}
+    <dt>Humidity</dt>
+    <dd>{{weather.humidity}}% </dd>
+  </dl>
+{{/each}}
