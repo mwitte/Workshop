@@ -4,6 +4,10 @@ Weather.Location = Ember.Object.extend({
   weather: Ember.Object.create(),
   coordinates: Ember.Object.create(),
 
+  humanWeather: function() {
+    return 'Temperature is ' + this.get('weather.temp') + ' and humidity ' + this.get('weather.humidity');
+  }.property('weather'),
+
   init: function() {
     this.updateWeather();
   },
