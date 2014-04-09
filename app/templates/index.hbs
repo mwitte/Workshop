@@ -13,6 +13,10 @@
 {{! switches the context}}
 {{#each locations}}
   <h2>{{name}}</h2>
+
+  {{#if coordinates.lat}}
+    {{view Weather.MapView positionBinding="coordinates"}}
+  {{/if}}
   <dl class="dl-horizontal">
     {{! change the context so the new this is weather}}
     {{#with weather}}
