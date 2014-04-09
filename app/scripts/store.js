@@ -1,1 +1,7 @@
-Weather.ApplicationAdapter = DS.FixtureAdapter;
+//Weather.ApplicationAdapter = DS.FixtureAdapter;
+
+Weather.Storage = Ember.Object.create({
+
+  locations: Ember.A()
+
+});
