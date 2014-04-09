@@ -2,6 +2,7 @@ Weather.Location = Ember.Object.extend({
 
   name: '',
   weather: Ember.Object.create(),
+  coordinates: Ember.Object.create(),
 
   init: function() {
     this.updateWeather();
@@ -16,7 +17,8 @@ Weather.Location = Ember.Object.extend({
         units: 'metric'
       }
     }).done(function(response){
-      _this.set('weather', Ember.Object.create(response.main))
+      _this.set('weather', Ember.Object.create(response.main));
+      _this.set('coordinates', Ember.Object.create(response.coord));
     });
   }
 
