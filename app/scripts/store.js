@@ -1,0 +1,1 @@
+Weather.ApplicationAdapter = DS.FixtureAdapter;
